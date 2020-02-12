@@ -21,7 +21,7 @@ ADD_EXECUTABLE(sems_tests ${sems_tests_SRCS})
 
 FOREACH (EXE_TARGET sems sems_tests)
 
-	TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core sems_sip event event_pthreads -rdynamic)
+	TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core sems_sip event event_pthreads -rdynamic -ldl)
 
 	IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 		TARGET_LINK_LIBRARIES(${EXE_TARGET} execinfo)
